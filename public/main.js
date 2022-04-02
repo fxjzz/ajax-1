@@ -44,7 +44,7 @@ getXML.onclick = () => {
 getHTML.onclick = () => {
   const request = new XMLHttpRequest();
   request.open("GET", "/3.htm");
-  request.onload = () => {
+  request.onreadystatechange = () => {
     // 创建 div 标签
     const div = document.createElement("div");
     // 填写 div 内容
@@ -52,13 +52,12 @@ getHTML.onclick = () => {
     // 插入到身体里
     document.body.appendChild(div);
   };
-  request.onerror = () => {};
   request.send();
 };
 getJS.onclick = () => {
   const request = new XMLHttpRequest();
   request.open("GET", "/2.js");
-  request.onload = () => {
+  request.onreadystatechange= () => {
     // 创建 script 标签
     const script = document.createElement("script");
     // 填写 script 内容
@@ -66,7 +65,7 @@ getJS.onclick = () => {
     // 插到身体里
     document.body.appendChild(script);
   };
-  request.onerror = () => {};
+  
   request.send();
 };
 
